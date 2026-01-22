@@ -7,7 +7,7 @@
         @Override
         public String toString() {return namn;}
 
-        int[] toCoords() {
+        public int[] toCoords() {
             switch(this) {
                 case NORTH: return new int[] {0, 1};
                 case EAST: return new int[] {1, 0};
@@ -17,7 +17,7 @@
             }
         }
 
-        Direction turnLeft() {
+        public Direction turnLeft() {
             switch(this) {
                 case NORTH: return WEST;
                 case WEST: return SOUTH;
@@ -27,7 +27,7 @@
             }
         }
 
-        Direction turnRight() {
+        public Direction turnRight() {
             switch(this) {
                 case NORTH: return EAST;
                 case EAST: return SOUTH;
