@@ -82,19 +82,19 @@ public class Car implements Movable{
     }
 
     @Override
-    private void move() {
+    void move() {
         int[] dirCoords = this.direction.toCoords();
         this.xPosition += dirCoords[0] * this.currentSpeed;
         this.yPosition += dirCoords[1] * this.currentSpeed;
     }
 
     @Override
-    private void turnLeft() {
+    void turnLeft() {
         this.direction  = this.direction.turnLeft(); 
     }
 
     @Override
-    private void turnRight() {
+    void turnRight() {
         this.direction  = this.direction.turnRight();
     }
 }
