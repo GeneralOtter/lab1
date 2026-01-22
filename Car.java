@@ -83,20 +83,18 @@ public class Car implements Movable{
 
     @Override
     private void move() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'move'");
+        int[] dirCoords = this.direction.toCoords();
+        this.xPosition += dirCoords[0] * this.currentSpeed;
+        this.yPosition += dirCoords[1] * this.currentSpeed;
     }
 
     @Override
     private void turnLeft() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'turnLeft'");
+        this.direction  = this.direction.turnLeft(); 
     }
 
     @Override
     private void turnRight() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'turnRight'");
-    }    
-
+        this.direction  = this.direction.turnRight();
+    }
 }
