@@ -11,17 +11,17 @@ public class Saab95 extends Car {
     }
     
     public void setTurboOn() {
-	    turboOn = true;
+	    this.turboOn = true;
     }
 
     public void setTurboOff() {
-	    turboOn = false;
+	    this.turboOn = false;
     }
 
     @Override
     protected double speedFactor() {
         double turbo = 1;
-        if (turboOn) turbo = 1.3;
+        if (this.turboOn) turbo = 1.3;
         return this.getEnginePower() * 0.01 * turbo;
     }
 }

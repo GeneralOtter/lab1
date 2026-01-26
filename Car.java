@@ -37,7 +37,7 @@ public class Car implements Movable{
         return this.color;
     }
 
-    public String getModelname() {
+    public String getModelName() {
         return this.modelName;
     }
 
