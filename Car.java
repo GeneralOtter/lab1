@@ -41,6 +41,10 @@ public class Car implements Movable{
         return this.modelName;
     }
 
+    public double[] getPosition() {
+        return new double[] {xPosition, yPosition};
+    }
+
     public void setColor(Color clr) {
 	    color = clr;
     }
