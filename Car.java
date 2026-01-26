@@ -62,11 +62,11 @@ public class Car implements Movable{
         return this.enginePower * 0.01;
     }
 
-    protected void incrementSpeed(double amount) {
+    private void incrementSpeed(double amount) {
 	    this.currentSpeed = Math.min(getCurrentSpeed() + speedFactor() * amount, enginePower);
     }
 
-    protected void decrementSpeed(double amount) {
+    private void decrementSpeed(double amount) {
         this.currentSpeed = Math.max(getCurrentSpeed() - speedFactor() * amount, 0);
     }
 
