@@ -2,17 +2,15 @@ import java.awt.*;
 
 public class Volvo240 extends Car {
 
-    private final static double trimFactor = 1.25;
-    
-    public Volvo240(){
-        nrDoors = 4;
-        color = Color.black;
-        enginePower = 100;
-        modelName = "Volvo 240";
-        stopEngine();
+    private double trimFactor = 1.25;
+
+    public Volvo240() {
+        super(4, Color.black, 100, "Volvo 240");
+        this.stopEngine();
     }
-    
+
+    @Override
     protected double speedFactor() {
-        return enginePower * 0.01 * trimFactor;
+        return this.getEnginePower() * 0.01 * trimFactor;
     }
 }

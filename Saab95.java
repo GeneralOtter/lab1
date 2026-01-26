@@ -5,12 +5,9 @@ public class Saab95 extends Car {
     private boolean turboOn;
 
     public Saab95() {
-        nrDoors = 2;
-        color = Color.red;
-        enginePower = 125;
-	    turboOn = false;
-        modelName = "Saab 95";
-        stopEngine();
+        super(2, Color.red, 125, "Saab 95");
+        this.turboOn = false;
+        this.stopEngine();
     }
     
     public void setTurboOn() {
@@ -20,11 +17,11 @@ public class Saab95 extends Car {
     public void setTurboOff() {
 	    turboOn = false;
     }
-    
+
+    @Override
     protected double speedFactor() {
         double turbo = 1;
         if (turboOn) turbo = 1.3;
-        return enginePower * 0.01 * turbo;
+        return this.getEnginePower() * 0.01 * turbo;
     }
-
 }
