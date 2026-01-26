@@ -25,6 +25,7 @@ public class Car implements Movable{
     public int getNrDoors() {
         return this.nrDoors;
     }
+
     public double getEnginePower() {
         return this.enginePower;
     }
