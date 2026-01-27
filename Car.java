@@ -1,15 +1,15 @@
 import java.awt.*;
 
-public class Car implements Movable{
+public abstract class Car implements Movable{
 
-    private final int nrDoors; // Number of doors on the car
-    private final double enginePower; // Engine power of the car
-    private double currentSpeed; // The current speed of the car
-    private Color color; // Color of the car
-    private final String modelName; // The car model name
-    private double xPosition; // X position of the car
-    private double yPosition; // Y position of the car
-    private Direction direction; // Direction the car is facing
+    private int nrDoors;
+    private double enginePower;
+    private double currentSpeed;
+    private Color color;
+    private String modelName;
+    private double xPosition;
+    private double yPosition;
+    private Direction direction;
 
     public Car(int nrDoors, Color color, double enginePower, String modelName) {
         this.nrDoors = nrDoors;
@@ -42,6 +42,10 @@ public class Car implements Movable{
         return this.modelName;
     }
 
+    public Direction getDirection() {
+        return this.direction;
+    }
+
     public double[] getPosition() {
         return new double[] {xPosition, yPosition};
     }
@@ -58,16 +62,16 @@ public class Car implements Movable{
 	    this.currentSpeed = 0;
     }
 
-    protected double speedFactor() {
-        return this.enginePower * 0.01;
-    }
-
     private void incrementSpeed(double amount) {
 	    this.currentSpeed = Math.min(getCurrentSpeed() + speedFactor() * amount, enginePower);
     }
 
     private void decrementSpeed(double amount) {
         this.currentSpeed = Math.max(getCurrentSpeed() - speedFactor() * amount, 0);
+    }
+
+    protected double speedFactor() {
+        return this.enginePower * 0.01;
     }
 
     protected void gas(double amount) {
@@ -88,9 +92,9 @@ public class Car implements Movable{
 
     @Override
     public void move() {
-        int[] dirCoords = this.direction.toCoords();
-        this.xPosition += dirCoords[0] * this.currentSpeed;
-        this.yPosition += dirCoords[1] * this.currentSpeed;
+        double[] dirCoordinates = this.direction.toPosition();
+        this.xPosition += dirCoordinates[0] * this.currentSpeed;
+        this.yPosition += dirCoordinates[1] * this.currentSpeed;
     }
 
     @Override
