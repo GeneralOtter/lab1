@@ -1,39 +1,36 @@
     public enum Direction {
         NORTH("North"), EAST("East"), SOUTH("South"), WEST("West");
     
-        private final String namn;
-        Direction(String namn) {this.namn = namn;}
+        private final String name;
+        Direction(String name) {this.name = name;}
     
         @Override
-        public String toString() {return namn;}
+        public String toString() {return name;}
 
         public double[] toPosition() {
-            switch(this) {
-                case NORTH: return new double[] {0, 1};
-                case EAST: return new double[] {1, 0};
-                case SOUTH: return new double[] {0, -1};
-                case WEST: return new double[] {-1, 0};
-                default: throw new IllegalArgumentException("Unknown direction: " + this);
-            }
+            return switch (this) {
+                case NORTH -> new double[]{0, 1};
+                case EAST -> new double[]{1, 0};
+                case SOUTH -> new double[]{0, -1};
+                case WEST -> new double[]{-1, 0};
+            };
         }
 
         public Direction turnLeft() {
-            switch(this) {
-                case NORTH: return WEST;
-                case WEST: return SOUTH;
-                case SOUTH: return EAST;
-                case EAST: return NORTH;
-                default: throw new IllegalArgumentException("Unknown direction: " + this);
-            }
+            return switch (this) {
+                case NORTH -> WEST;
+                case WEST -> SOUTH;
+                case SOUTH -> EAST;
+                case EAST -> NORTH;
+            };
         }
 
         public Direction turnRight() {
-            switch(this) {
-                case NORTH: return EAST;
-                case EAST: return SOUTH;
-                case SOUTH: return WEST;
-                case WEST: return NORTH;
-                default: throw new IllegalArgumentException("Unknown direction: " + this);
-            }
+            return switch (this) {
+                case NORTH -> EAST;
+                case EAST -> SOUTH;
+                case SOUTH -> WEST;
+                case WEST -> NORTH;
+            };
         }
     }
